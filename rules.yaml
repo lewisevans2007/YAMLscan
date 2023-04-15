@@ -1,0 +1,35 @@
+meta:
+    name: "Name of the rule"  
+    type: "Executable"
+    author: "Author"
+    version: "V1.0"
+    description: "What the rule finds"
+    date: "The date of the rule"
+
+rules:
+  - name: "GNU Compiler Collection Identification"
+    description: "Finds files that were compiled with GCC"
+    type: "string" 
+    report:
+      colour: "yellow"
+      text: "FOUND:"
+    if: "CONTAINS"
+    find: "GCC"
+    
+  - name: "Binary identifier for x86_64"
+    description: "Finds files that are compiled for x86_64"
+    type: "string" 
+    report:
+      colour: "red"
+      text: "FOUND:"
+    if: "CONTAINS"
+    find: "x86-64"
+
+  - name: "Binary identifier for ELF"
+    description: "Finds files that are compiled for ELF"
+    type: "string" 
+    report:
+      colour: "blue"
+      text: "ELF:"
+    if: "CONTAINS"
+    find: "ELF"

@@ -4,6 +4,54 @@ Finds thing in files with a given YAML rule.
 
 This project is similar to YARA but made in Python. It can be used for finding malware in files or string in files.
 
+![demo](doc/demo.png)
+
+<details close>
+<summary>Rule use in demo</summary>
+
+```yaml
+meta:
+    name: "Demo rule" 
+    type: "Executable"
+    author: "awesomelewis2007"
+    version: "V1.0"
+    description: "Finds execuatble identifiers"
+    date: "15-04-2023"
+
+rules:
+  - name: "GNU Compiler Collection Identification"
+    description: "Finds files that were compiled with GCC"
+    type: "string" 
+    report:
+      colour: "yellow"
+      text: "FOUND:"
+    if: "CONTAINS"
+    find: "GCC"
+    
+  - name: "Binary identifier for x86_64"
+    description: "Finds files that are compiled for x86_64"
+    type: "string" 
+    report:
+      colour: "red"
+      text: "FOUND:"
+    if: "CONTAINS"
+    find: "x86-64"
+
+  - name: "Binary identifier for ELF"
+    description: "Finds files that are compiled for ELF"
+    type: "string" 
+    report:
+      colour: "blue"
+      text: "ELF:"
+    if: "CONTAINS"
+    find: "ELF"
+```
+</details>
+
+## Example of rule
+
+```yaml
+
 ## Example of rule
 
 ```yaml
