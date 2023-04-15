@@ -6,13 +6,13 @@ meta:
     date: "2023-04-15"
 
 rules:
-  - name: "Find Hello world!"
+  - name: "Hello world!"
     description: "Finds the string 'Hello world!' in a file"
     type: "string"
     if: "CONTAINS"
     find: "Hello world!"
     
-  - name: "Find printf statement"
+  - name: "printf statement"
     description: "Finds a printf statement"
     type: "string"
     if: "CONTAINS"
