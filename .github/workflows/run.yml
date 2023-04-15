@@ -18,4 +18,4 @@ jobs:
       - name: Run
         run: |
           python3 -m YAMLscan hello_world examples/hello_world/rule.yaml
-          python3 -m YAMLscan examples/ip_address/ip.txt examples/ip_address/rule.yaml
+          python3 -m YAMLscan examples/ip_addresses/ip.txt examples/ip_addresses/rule.yaml
