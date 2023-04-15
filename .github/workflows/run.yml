@@ -1,8 +1,10 @@
 name: Run YAMLscan
 
 on:
-  push: ["master"]
-  pull_request: ["master"]
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build:
@@ -12,7 +14,7 @@ jobs:
       - name: Build
         run: |
           gcc examples/hello_world/hello.c -o hello_world
-  
+
       - name: Run
         run: |
           python3 -m YAMLscan hello_world examples/hello_world/rule.yaml
