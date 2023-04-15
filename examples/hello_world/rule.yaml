@@ -1,0 +1,19 @@
+meta:
+    name: "Hello world program finder"
+    author: "awesomelewis2007"
+    version: "V1.0"
+    description: "Finds the string 'Hello world!' in a file and a printf statement"
+    date: "2023-04-15"
+
+rules:
+  - name: "Find Hello world!"
+    description: "Finds the string 'Hello world!' in a file"
+    type: "string"
+    if: "CONTAINS"
+    find: "Hello world!"
+    
+  - name: "Find printf statement"
+    description: "Finds a printf statement"
+    type: "string"
+    if: "CONTAINS"
+    find: "printf"

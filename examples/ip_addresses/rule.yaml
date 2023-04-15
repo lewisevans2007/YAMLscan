@@ -1,0 +1,13 @@
+meta:
+    name: "IP address finder"
+    author: "awesomelewis2007"
+    version: "V1.0"
+    description: "Finds IP addresses in a file using regex"
+    date: "2023-04-15"
+
+rules:
+  - name: "Find IP address"
+    description: "Finds an IP address in a file"
+    type: "regex"
+    if: "CONTAINS"
+    find: "((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"
