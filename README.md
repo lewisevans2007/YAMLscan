@@ -64,8 +64,8 @@ meta:
     date: "The date of the rule"
 
 rules:
-  - name: "Hello world!"
-    description: "Finds the string 'Hello world!' in a file"
+  - name: "Hello world!" # <-- Name of the rule
+    description: "Finds the string 'Hello world!' in a file" # <-- Optional description of the rule
     type: "string" # <-- The type of the rule (string or regex)
     report: # <- Optional style for the report
       colour: "blue" # <-- The colour of the message when found (red, yellow, green, blue, purple, cyan, white, magenta)
@@ -77,7 +77,14 @@ rules:
     description: "Finds a number in a file using regex"
     type: "regex"
     if: "CONTAINS"
-    find: "[0-9]+" # <-- Regex to find a number in a file
+    find: "[0-9]+" # <-- Regex to find a number in a file#
+  
+  - name: "Find Hello bytes"
+    description: "Finds the bytes 'Hello' in a file"
+    type: "bytes"
+    if: "CONTAINS"
+    find: "48 65 6C 6C 6F" # <-- Hex bytes to find in a file
+    # Hex can be written as 0x00,0x00 or 00,00 or 00 00 or 0000 you chose YAMLscan will clean it up for you
 ```
 
 ## Usage

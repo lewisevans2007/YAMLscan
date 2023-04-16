@@ -111,6 +111,31 @@ def scan_file(yaml, file):
                     print(Back.RED + "ERROR:" + Style.RESET_ALL + " " +
                           rule["name"] + " in " + file + ":" + str(line_number+1) + " (UnicodeDecodeError)")
                     
+        elif rule["type"] == "bytes":
+            if rule["if"].upper() == "CONTAINS":
+                try:
+                    for line_number, line in enumerate(data.splitlines()):
+                        if bytes.fromhex(rule["find"].replace(" ", "").replace(",","").replace("0x","")) in line:
+                            report_findings(yaml, rule, file, line_number+1)
+                except UnicodeDecodeError:
+                    print(Back.RED + "ERROR:" + Style.RESET_ALL + " " +
+                          rule["name"] + " in " + file + ":" + str(line_number+1) + " (UnicodeDecodeError)")
+            if rule["if"].upper() == "STARTS":
+                try:
+                    for line_number, line in enumerate(data.splitlines()):
+                        if line.startswith(bytes.fromhex(rule["find"].replace(" ", "").replace(",","").replace("0x",""))):
+                            report_findings(yaml, rule, file, line_number+1)
+                except UnicodeDecodeError:
+                    print(Back.RED + "ERROR:" + Style.RESET_ALL + " " +
+                          rule["name"] + " in " + file + ":" + str(line_number+1) + " (UnicodeDecodeError)")
+            if rule["if"].upper() == "ENDS":
+                try:
+                    for line_number, line in enumerate(data.splitlines()):
+                        if line.endswith(bytes.fromhex(rule["find"].replace(" ", "").replace(",","").replace("0x",""))):
+                            report_findings(yaml, rule, file, line_number+1)
+                except UnicodeDecodeError:
+                    print(Back.RED + "ERROR:" + Style.RESET_ALL + " " +
+                          rule["name"] + " in " + file + ":" + str(line_number+1) + " (UnicodeDecodeError)")
         else:
             print("Error: Invalid type in rule set")
             sys.exit(1)
