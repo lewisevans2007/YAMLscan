@@ -102,3 +102,9 @@ python3 -m YAMLscan - <rule_file>
 You can run `--info <rule_file>` to get info about the rule file.
 
 And if you get stuck you can run `--help` to get help.
+
+## Creating rules
+
+To start creating a rule you can use the [template](examples/blank/blank.yaml) to get started.
+
+Anything that is commented in that file is optional and can be removed. If you see a option like this `option: "abc|def|ghi"` this means you need to remove one option and keep the other. For example if you want to use `option: "abc"` you need to remove `"def|ghi"`. 
