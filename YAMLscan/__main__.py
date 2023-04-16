@@ -8,6 +8,52 @@ import re
 import yaml
 from colorama import init, Back, Style
 
+def info(rule_set):
+    try:
+        print("Rule name:\t\t" + rule_set["meta"]["name"])
+    except KeyError:
+        pass
+    try:
+        print("Rule author:\t\t" + rule_set["meta"]["author"])
+    except KeyError:
+        pass
+    try:
+        print("Rule description:\t" + rule_set["meta"]["description"])
+    except KeyError:
+        pass
+    try:
+        print("Rule version:\t\t" + rule_set["meta"]["version"])
+    except KeyError:
+        pass
+    try:
+        print("Rule license:\t\t" + rule_set["meta"]["license"])
+    except KeyError:
+        pass
+    try:
+        print("Rule date:\t\t" + rule_set["meta"]["date"])
+    except KeyError:
+        pass
+    try:
+        print("Rule references:\t" + rule_set["meta"]["references"])
+    except KeyError:
+        pass
+    try:
+        print("Rule tags:\t\t" + rule_set["meta"]["tags"])
+    except KeyError:
+        pass
+    try:
+        print("Rule type:\t\t" + rule_set["meta"]["type"])
+    except KeyError:
+        pass
+    try:
+        print("Rule severity:\t\t" + rule_set["meta"]["severity"])
+    except KeyError:
+        pass
+    rule_count = 0
+    for rule in rule_set["rules"]:
+        rule_count += 1
+    print("Rule count:\t\t" + str(rule_count))
+
 
 def report_findings(yaml, rule, file, line_number):
     """
@@ -142,6 +188,14 @@ def scan_file(yaml, file):
 
 
 if __name__ == "__main__":
+    if sys.argv[1] == "--help" or sys.argv[1] == "-h":
+        print("Usage:\tpython3 -m YAMLscan <file> <rule set>")
+        print("\tpython3 -m YAMLscan --info <rule set>")
+        print("\tpython3 -m YAMLscan - <rule set>")
+        print("\tpython3 -m YAMLscan --help")
+        print("\tpython3 -m YAMLscan -h")
+        sys.exit(0)
+
     if len(sys.argv) < 3:
         print("Usage: python3 -m YAMLscan <file> <rule set>")
         sys.exit(1)
@@ -157,6 +211,8 @@ if __name__ == "__main__":
         for root, dirs, files in os.walk("."):
             for file in files:
                 scan_file(rule_set, root+"/"+file)
-                
+    if file == "--info":
+        info(rule_set)
+
     else:
         scan_file(rule_set, file)

@@ -98,3 +98,7 @@ Or to scan files in a directory and subdirectories:
 ```bash
 python3 -m YAMLscan - <rule_file>
 ```
+
+You can run `--info <rule_file>` to get info about the rule file.
+
+And if you get stuck you can run `--help` to get help.
