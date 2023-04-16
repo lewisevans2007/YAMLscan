@@ -1,0 +1,23 @@
+# Blank YAMLscan template anything in comments is optional
+
+meta:
+  name: "name"
+  # description: "description"
+  # author: "author"
+  # version: "version"
+  # date: "date"
+  # license: "license"
+  # references: "references"
+  # tags: "tags"
+  # type: "malware|vulnerability|exploit"
+  # severity: "low|medium|high"
+  
+rules:
+  - name: "name"
+    # description: "description"
+    type: "regex|string|bytes"
+    # report:
+    #  colour: "red|green|yellow|blue|magenta|cyan|white"
+    #  text: "text"
+    if: "CONTAINS|STARTS|ENDS"
+    find: "find"
