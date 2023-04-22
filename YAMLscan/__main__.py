@@ -1,7 +1,7 @@
 # YAMLScan
 # A tool for scanning files and
 # Github: https//www.github.com/awesomelewis2007/YAMLscan
-# Licence: GPL-v3.0
+# Licence: GPL-3.0
 # By: Lewis Evans
 
 import os
