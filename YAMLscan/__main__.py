@@ -1,5 +1,5 @@
 # YAMLScan
-# A tool for scanning files and
+# Finds thing in files with a given YAML rule.
 # Github: https//www.github.com/awesomelewis2007/YAMLscan
 # Licence: GPL-3.0
 # By: Lewis Evans
