@@ -1,7 +1,7 @@
 # YAMLScan
 # Finds thing in files with a given YAML rule.
 # Github: https//www.github.com/awesomelewis2007/YAMLscan
-# Licence: GPL-3.0
+# Licence: GNU General Public License v3.0
 # By: Lewis Evans
 
 colorama==0.4.6
