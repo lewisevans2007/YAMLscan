@@ -12,6 +12,7 @@ from colorama import init, Back, Style
 
 
 def info(rule_set):
+    print("Rule set information:")
     try:
         print("Rule name:\t\t" + rule_set["meta"]["name"])
     except KeyError:
